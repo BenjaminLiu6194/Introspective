@@ -2,7 +2,7 @@
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "tsc && vite build",
-    "test": "node --test server/*.test.mjs"
+    "test": "node --test tests/*.test.mjs"
   },
   "dependencies": {
     "react": "*",

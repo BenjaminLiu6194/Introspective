@@ -1,4 +1,4 @@
-import type {Interpretation} from './model';
+import type {Interpretation} from '../types/model';
 export const journal=`Alrighty, another big week. I’m back.
 Amazing presentation yesterday. So privileged to be able to present.
 Saw Mark Cuban, Jerome Bettis, Roger Goodell, Governor Shapiro, the Mayor, and the CMU President

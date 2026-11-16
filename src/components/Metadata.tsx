@@ -1,4 +1,4 @@
-import React,{useEffect,useRef,useState}from'react';import AreaMap from './area-map';
+import React,{useEffect,useRef,useState}from'react';import AreaMap from './AreaMap';
 type Place={name:string;lat:number;lon:number};type Meta={time:string;place:Place|null};
 function localTime(){const now=new Date;return new Date(now.getTime()-now.getTimezoneOffset()*60000).toISOString().slice(0,16)}
 function initial():Meta{try{const value=JSON.parse(localStorage.getItem('introspective.metadata')||'null');if(value?.time)return value}catch{}return{time:localTime(),place:null}}

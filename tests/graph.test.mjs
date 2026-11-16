@@ -1,4 +1,4 @@
-import test from 'node:test';import assert from 'node:assert/strict';import{buildGraph}from'../graph.mjs';
+import test from 'node:test';import assert from 'node:assert/strict';import{buildGraph}from'../src/lib/graph.mjs';
 const art={title:'A light to become',shape:'lighthouse',concepts:[{label:'inspire',excerpt:'I want to inspire people.'},{label:'persistence',excerpt:'I will keep trying.'}],links:[{from:0,to:1,meaning:'Persistence supports ambition.'}]};
 test('every edge terminates at labeled nodes, including the silhouette',()=>{const graph=buildGraph(art);assert.ok(graph.edges.length>0);assert.ok(graph.edges.some(e=>e.kind==='boundary'));for(const e of graph.edges){for(const id of[e.from,e.to]){const n=graph.nodes[id];assert.ok(n);assert.ok(n.label.trim());assert.ok(Number.isFinite(n.x)&&Number.isFinite(n.y))}}});
 test('all nodes participate in the graph',()=>{const {nodes,edges}=buildGraph(art);for(const n of nodes)assert.ok(edges.some(e=>e.from===n.id||e.to===n.id))});
