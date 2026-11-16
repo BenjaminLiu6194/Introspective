@@ -1,0 +1,2 @@
+// Match actual displayed labels only, on complete Unicode word boundaries.
+export function echoRanges(text,pulses){const ranges=[];for(const pulse of pulses){const escaped=pulse.label.replace(/[.*+?^${}()|[\]\\]/g,'\\$&').split(/\s+/).join('\\s+');if(!escaped)continue;const regex=new RegExp(escaped,'giu');for(const match of text.matchAll(regex)){const start=match.index,end=start+match[0].length;const word=/[\p{L}\p{N}’'-]/u;if((start&&word.test(text[start-1]))||(end<text.length&&word.test(text[end])))continue;ranges.push({start,end,id:pulse.id})}}return ranges}

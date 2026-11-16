@@ -1,0 +1,4 @@
+import test from'node:test';import assert from'node:assert/strict';import{echoRanges}from'../echo.mjs';
+test('only exact visible labels trigger journal spans',()=>{const text='Hope helps. Hopeless is different. I keep trying.';const ranges=echoRanges(text,[{id:2,label:'hope'},{id:3,label:'keep trying'}]);assert.deepEqual(ranges.map(r=>text.slice(r.start,r.end)),['Hope','keep trying'])});
+test('does not invent matches from related concepts',()=>assert.deepEqual(echoRanges('Faith and hope.',[{id:1,label:'persistence'}]),[]));
+test('phrases match across whitespace without matching across punctuation',()=>{const text='Keep\ntrying. Keep, trying.';const ranges=echoRanges(text,[{id:1,label:'keep trying'}]);assert.equal(ranges.length,1);assert.equal(text.slice(ranges[0].start,ranges[0].end),'Keep\ntrying')});
