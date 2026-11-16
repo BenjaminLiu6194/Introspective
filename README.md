@@ -2,6 +2,8 @@
 
 Turn a journal entry into an interactive word graph.
 
+![Introspective journal with a location map and lighthouse word graph](docs/images/introspective.png)
+
 ## Run
 
 ```sh
